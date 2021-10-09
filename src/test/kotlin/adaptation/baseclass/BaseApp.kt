@@ -11,9 +11,9 @@ open class BaseApp {
 
     fun createApp(product: String, driver: AppiumDriver<MobileElement>, platform: String): BaseApp {
         when (product) {
-            //"AnyOtherApp" -> return AnyOtherAppBase(driver, platform)
+            //"CommonProductApp" -> return CommonProductAppBase(driver, platform)
             "Fearless" -> return FearlessBase(driver, platform)
         }
-        return adaptation.baseclass.BaseApp()
+        return BaseApp()
     }
 }

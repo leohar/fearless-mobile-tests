@@ -13,4 +13,8 @@ interface BaseScreen {
     fun returnHeader(): MobileElement? {
         return null
     }
+
+    fun returnElements(): List<Pair<MobileElement?, String>>? {
+        return null
+    }
 }

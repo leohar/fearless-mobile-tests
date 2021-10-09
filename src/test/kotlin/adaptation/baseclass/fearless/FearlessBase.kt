@@ -1,6 +1,8 @@
 package adaptation.baseclass.fearless
 
 import adaptation.baseclass.BaseApp
+import adaptation.screens.shared.LoginScreenAndroid
+import definition.steps.LoginScreenStepsAndroid
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 
@@ -10,15 +12,21 @@ import io.appium.java_client.MobileElement
  */
 
 class FearlessBase(driver: AppiumDriver<MobileElement>, platformRunAs: String) : BaseApp() {
-    //TODO LoginScreen
+
+    var loginScreenAndroid = LoginScreenAndroid(driver)
+    var loginScreenStepsAndroid = LoginScreenStepsAndroid(loginScreenAndroid, driver, platformRunAs)
+
+//    var loginScreenIOS = LoginScreeniOS(driver)
+//    var loginScreenStepsIOS = LoginScreenStepsIOS(loginScreenIOS, driver, platformRunAs)
+    //TODO CreateAccountScreen
 
     //TODO SetPINScreen
 
     //TODO WalletScreen
 
-    //TODO CrowdlaonsScreen
+    //TODO CrowdloansScreen
 
-    //TODO StakinScreen
+    //TODO StakingScreen
 
     //TODO SettingsScreen
 }
