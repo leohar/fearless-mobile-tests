@@ -34,15 +34,29 @@ abstract class TestStep(
     }
 
     /**
-     * check elements are displayed
+     * Check elements are displayed
      * */
-    fun checkElementsAreDisplayed() {
+    open fun checkElementsAreDisplayed() {
         page.returnElements()!!.forEach {
             checkElementIsDisplayed(it.first!!, it.second)
         }
     }
 
+    /**
+     * Click element
+     */
     fun clickElement(element: MobileElement, elementName: String = "Element") {
             element.click()
+    }
+
+    /**
+     * Text input
+     */
+    fun fillTextInput(element: MobileElement, text: String) {
+            element.run {
+                click()
+                clear()
+                sendKeys(text)
+            }
     }
 }

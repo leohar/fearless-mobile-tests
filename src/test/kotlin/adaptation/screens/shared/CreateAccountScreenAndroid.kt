@@ -11,19 +11,19 @@ class CreateAccountScreenAndroid(driver: AppiumDriver<MobileElement>?): BaseScre
     override val expectedHeaderAndroid: String = "Create account"
     override val expectedHeaderiOS: String = ""
 
-    @AndroidFindBy(id = "titleTv")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/titleTv")
     var titleTV: MobileElement? = null
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ImageView\n")
     var backBN:  MobileElement? = null
 
-    @AndroidFindBy(id = "networkInput")
-    var networkIT: MobileElement? = null
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/networkInput")
+    var networkSN: MobileElement? = null
 
-    @AndroidFindBy(id = "inputField")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/inputField")
     var nameET: MobileElement? = null
 
-    @AndroidFindBy(id = "nextBtn")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/nextBtn")
     var nextBN: MobileElement? = null
 
     init {
@@ -38,7 +38,7 @@ class CreateAccountScreenAndroid(driver: AppiumDriver<MobileElement>?): BaseScre
         return listOf(
             Pair(titleTV, "Title"),
             Pair(backBN, "Back button"),
-            Pair(networkIT, "Network input"),
+            Pair(networkSN, "Network selection"),
             Pair(nameET, "Name input"),
             Pair(nextBN, "Next button")
         )

@@ -4,8 +4,7 @@ import adaptation.baseclass.BaseTest
 import adaptation.baseclass.fearless.FearlessBase
 import org.junit.jupiter.api.Test
 
-
-class FearlessLoginAndroidTest: BaseTest() {
+class FearlessLoginAndroidTest : BaseTest() {
 
     @Test
     fun fearlessAndroidLoginScreen() {
@@ -13,6 +12,12 @@ class FearlessLoginAndroidTest: BaseTest() {
             loginScreenStepsAndroid.run {
                 checkHeader()
                 checkElementsAreDisplayed()
+                proceedCreateAccount()
+            }
+            loginScreenStepsAndroid.run {
+                checkHeader()
+                checkElementsAreDisplayed()
+                proceedAccountImport()
             }
         }
     }
