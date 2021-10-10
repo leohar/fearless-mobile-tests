@@ -22,4 +22,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    systemProperty("product", System.getProperty("product") ?: "Fearless")
+    systemProperty("devices", System.getProperty("devices") ?: "Android Emulator")
 }

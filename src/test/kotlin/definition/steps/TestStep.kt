@@ -42,7 +42,7 @@ abstract class TestStep(
         }
     }
 
-    fun clickElement(element: MobileElement, elementName: String = "Элемент") {
+    fun clickElement(element: MobileElement, elementName: String = "Element") {
             element.click()
     }
 }

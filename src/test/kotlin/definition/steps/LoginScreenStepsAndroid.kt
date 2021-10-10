@@ -13,9 +13,12 @@ class LoginScreenStepsAndroid(
 
     override fun checkHeader() {
         super.checkHeader()
-        val result = page.returnHeader()!!.text
-        val expected = null
-        Assert.assertTrue("No header is provided",result == expected)
+        try {
+            page.returnHeader()!!.text
+        } catch (e: NoSuchElementException) {
+            Assert.assertTrue("No header is provided", true)
+        }
+        Assert.assertFalse("Header found", false)
     }
 
 //    override fun checkElementsAreDisplayed() {

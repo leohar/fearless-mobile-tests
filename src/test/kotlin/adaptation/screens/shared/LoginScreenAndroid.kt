@@ -13,23 +13,37 @@ class LoginScreenAndroid(driver: AppiumDriver<MobileElement>?): BaseScreen {
 
     override val expectedHeaderAndroid: String = ""
     override val expectedHeaderiOS: String = ""
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/termsTv")
     var titleTV: MobileElement? = null
 
-    @AndroidFindBy(id = "logoimg")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/logoImg")
     var welcomeLogoIMG: MobileElement? = null
 
-    @AndroidFindBy(id = "createAccountBtn")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/createAccountBtn")
     var createAccountBN: MobileElement? = null
 
-    @AndroidFindBy(id = "importAccountBtn")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/importAccountBtn")
     var importAccountBN: MobileElement? = null
+
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/termsTv")
+    var termsLK: MobileElement? = null
 
     init {
         PageFactory.initElements(AppiumFieldDecorator(driver), this)
     }
 
     override fun returnHeader(): MobileElement? {
-        return titleTV
+        return null
+    }
+
+    override fun returnElements(): List<Pair<MobileElement?, String>> {
+        return listOf(
+            Pair(titleTV, "Title"),
+            Pair(welcomeLogoIMG, "Back button"),
+            Pair(createAccountBN, "Network input"),
+            Pair(importAccountBN, "Name input"),
+            Pair(termsLK, "Terms links")
+        )
     }
 }
 
