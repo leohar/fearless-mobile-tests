@@ -14,4 +14,11 @@ class CreateAccountStepsAndroid(
     override fun checkHeader() {
         super.checkHeader()
     }
+
+    /** "Back button click" */
+    fun backtoLoginScreen() {
+        page.run {
+            clickElement(backBN!!, "Back button")
+        }
+    }
 }

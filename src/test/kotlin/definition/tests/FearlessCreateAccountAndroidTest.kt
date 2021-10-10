@@ -9,6 +9,9 @@ class FearlessCreateAccountAndroidTest : BaseTest() {
     @Test
     fun fearlessAndroidCreateAccountScreen() {
         with(app as FearlessBase) {
+            loginScreenStepsAndroid.run {
+                proceedCreateAccount()
+            }
             createAccountStepsAndroid.run {
                 checkHeader()
                 checkElementsAreDisplayed()

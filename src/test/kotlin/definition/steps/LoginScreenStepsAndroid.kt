@@ -27,7 +27,6 @@ class LoginScreenStepsAndroid(
     fun proceedCreateAccount() {
         page.run {
             clickElement(createAccountBN!!, "Create account button")
-
         }
     }
 
@@ -35,7 +34,6 @@ class LoginScreenStepsAndroid(
     fun proceedAccountImport() {
         page.run {
             clickElement(importAccountBN!!, "Import account button")
-
         }
     }
 }

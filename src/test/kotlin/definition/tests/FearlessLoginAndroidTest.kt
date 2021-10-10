@@ -14,6 +14,11 @@ class FearlessLoginAndroidTest : BaseTest() {
                 checkElementsAreDisplayed()
                 proceedCreateAccount()
             }
+            createAccountStepsAndroid.run {
+                checkHeader()
+                checkElementsAreDisplayed()
+                backtoLoginScreen()
+            }
             loginScreenStepsAndroid.run {
                 checkHeader()
                 checkElementsAreDisplayed()
@@ -22,3 +27,4 @@ class FearlessLoginAndroidTest : BaseTest() {
         }
     }
 }
+
