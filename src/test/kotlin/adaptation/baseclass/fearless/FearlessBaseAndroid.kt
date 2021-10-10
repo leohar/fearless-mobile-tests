@@ -13,16 +13,16 @@ import io.appium.java_client.MobileElement
  * All app screens and steps initialization
  */
 
-class FearlessBase(driver: AppiumDriver<MobileElement>, platformRunAs: String) : BaseApp() {
+class FearlessBaseAndroid(driver: AppiumDriver<MobileElement>) : BaseApp() {
 
     var loginScreenAndroid = LoginScreenAndroid(driver)
-    var loginScreenStepsAndroid = LoginScreenStepsAndroid(loginScreenAndroid, driver, platformRunAs)
+    var loginScreenStepsAndroid = LoginScreenStepsAndroid(loginScreenAndroid, driver)
 
 //    var loginScreenIOS = LoginScreeniOS(driver)
 //    var loginScreenStepsIOS = LoginScreenStepsIOS(loginScreenIOS, driver, platformRunAs)
-    //TODO CreateAccountScreen
+
     var createAccountScreenAndroid = CreateAccountScreenAndroid(driver)
-    var createAccountStepsAndroid = CreateAccountStepsAndroid(createAccountScreenAndroid, driver, platformRunAs)
+    var createAccountStepsAndroid = CreateAccountStepsAndroid(createAccountScreenAndroid, driver)
 
     //TODO SetPINScreen
 

@@ -1,5 +1,6 @@
 package definition.steps
 
+import adaptation.utils.shared.MobilePlatform
 import adaptation.screens.shared.CreateAccountScreenAndroid
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
@@ -7,9 +8,8 @@ import io.appium.java_client.MobileElement
 class CreateAccountStepsAndroid(
     override val page: CreateAccountScreenAndroid,
     override val driver: AppiumDriver<MobileElement>?,
-    override val platform: String
 ) :
-    TestStep(page, driver, platform) {
+    TestStep(page, driver, MobilePlatform.ANDROID) {
 
     override fun checkHeader() {
         super.checkHeader()
@@ -18,7 +18,7 @@ class CreateAccountStepsAndroid(
     /** "Back button click" */
     fun backtoLoginScreen() {
         page.run {
-            clickElement(backBN!!, "Back button")
+            backBN!!.clickElement("Back button")
         }
     }
 }

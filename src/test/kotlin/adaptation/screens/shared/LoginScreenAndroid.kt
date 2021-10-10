@@ -14,7 +14,7 @@ class LoginScreenAndroid(driver: AppiumDriver<MobileElement>?) : BaseScreen {
     override val expectedHeaderAndroid: String = ""
     override val expectedHeaderiOS: String = ""
 
-    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/termsTv")
+    @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/titleTv")
     var titleTV: MobileElement? = null
 
     @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/logoImg")
@@ -39,7 +39,6 @@ class LoginScreenAndroid(driver: AppiumDriver<MobileElement>?) : BaseScreen {
 
     override fun returnElements(): List<Pair<MobileElement?, String>> {
         return listOf(
-            Pair(titleTV, "Title"),
             Pair(welcomeLogoIMG, "Welcome logo"),
             Pair(createAccountBN, "Create account button"),
             Pair(importAccountBN, "Import account button"),

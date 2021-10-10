@@ -1,14 +1,14 @@
 package definition.tests
 
 import adaptation.baseclass.BaseTest
-import adaptation.baseclass.fearless.FearlessBase
+import adaptation.baseclass.fearless.FearlessBaseAndroid
 import org.junit.jupiter.api.Test
 
-class FearlessLoginAndroidTest : BaseTest() {
+class FearlessLoginAndroidTest : BaseTest<FearlessBaseAndroid>() {
 
     @Test
     fun fearlessAndroidLoginScreen() {
-        with(app as FearlessBase) {
+        with(app) {
             loginScreenStepsAndroid.run {
                 checkHeader()
                 checkElementsAreDisplayed()

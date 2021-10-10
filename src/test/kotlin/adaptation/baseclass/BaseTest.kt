@@ -1,11 +1,12 @@
 package adaptation.baseclass
 
+import adaptation.utils.shared.MobilePlatform
 import adaptation.utils.shared.appium.DevicesConfigurator
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
-import org.junit.runners.Parameterized
+import java.lang.Exception
 import java.net.MalformedURLException
 import java.util.concurrent.TimeUnit
 
@@ -13,11 +14,11 @@ import java.util.concurrent.TimeUnit
  * Base test class
  */
 
-open class BaseTest {
-    var driver = ThreadLocal<AppiumDriver<MobileElement>>()
-    var platformRunAs: String = ""
+open class BaseTest <T: BaseApp>{
+    private var driver = ThreadLocal<AppiumDriver<MobileElement>>()
+    lateinit var platformRunAs: MobilePlatform
     var productName: String = ""
-    lateinit var app: BaseApp
+    lateinit var app: T
     val product = System.getProperty("product")
     val devices = System.getProperty("devices")
 
@@ -42,13 +43,13 @@ open class BaseTest {
 //            }
         }
         when (devices) {
-            "Redmi 9T" -> {
+            "Redmi9T" -> {
                 driver.set(
                     DevicesConfigurator().configDriver(
                         deviceName = "Redmi 9T", appPath = androidPath, bundleId = ""
                     )
                 )
-                platformRunAs = "Android"
+                platformRunAs = MobilePlatform.ANDROID
             }
             "iPhone Emulator" -> {
                 driver.set(
@@ -56,7 +57,7 @@ open class BaseTest {
                         deviceName = "iPhone Emulator", appPath = iOSPath, bundleId = bundleId
                     )
                 )
-                platformRunAs = "iOSX"
+                platformRunAs = MobilePlatform.IOS
             }
             "Android Emulator" -> {
                 driver.set(
@@ -64,16 +65,16 @@ open class BaseTest {
                         deviceName = "Android Emulator", appPath = androidPath, bundleId = ""
                     )
                 )
-                platformRunAs = "Android"
+                platformRunAs = MobilePlatform.ANDROID
             }
         }
         driver.get().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS)
-        app = BaseApp().createApp(productName, driver.get(), platformRunAs)
+        app = BaseApp().createApp(productName, driver.get(), platformRunAs) as T
     }
 
     @AfterEach
     fun tearDown() {
-        this.driver?.get().quit()
+        this.driver.get().quit() ?: throw Exception ("Driver instance was unable to quit.")
     }
 
     fun getDriver(): AppiumDriver<MobileElement>? {
