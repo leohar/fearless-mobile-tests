@@ -6,7 +6,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy
 import io.appium.java_client.pagefactory.AppiumFieldDecorator
 import org.openqa.selenium.support.PageFactory
 
-class CreateAccountScreenAndroid(driver: AppiumDriver<MobileElement>?): BaseScreen {
+class CreateAccountScreenAndroid(driver: AppiumDriver<MobileElement>?) : BaseScreen {
 
     override val expectedHeaderAndroid: String = "Create account"
     override val expectedHeaderiOS: String = ""
@@ -15,7 +15,7 @@ class CreateAccountScreenAndroid(driver: AppiumDriver<MobileElement>?): BaseScre
     var titleTV: MobileElement? = null
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.ImageView\n")
-    var backBN:  MobileElement? = null
+    var backBN: MobileElement? = null
 
     @AndroidFindBy(id = "jp.co.soramitsu.fearless.debug:id/networkInput")
     var networkSN: MobileElement? = null

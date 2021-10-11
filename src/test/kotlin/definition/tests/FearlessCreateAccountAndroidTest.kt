@@ -2,7 +2,10 @@ package definition.tests
 
 import adaptation.baseclass.BaseTest
 import adaptation.baseclass.fearless.FearlessBaseAndroid
+import org.junit.jupiter.api.MethodOrderer
+import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.TestMethodOrder
 
 class FearlessCreateAccountAndroidTest : BaseTest<FearlessBaseAndroid>() {
 
@@ -15,6 +18,8 @@ class FearlessCreateAccountAndroidTest : BaseTest<FearlessBaseAndroid>() {
             createAccountStepsAndroid.run {
                 checkHeader()
                 checkElementsAreDisplayed()
+                fillUserName()
+                proceedToBackupMnemonic()
             }
         }
     }

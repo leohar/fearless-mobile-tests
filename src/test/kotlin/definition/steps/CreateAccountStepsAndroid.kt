@@ -11,14 +11,24 @@ class CreateAccountStepsAndroid(
 ) :
     TestStep(page, driver, MobilePlatform.ANDROID) {
 
-    override fun checkHeader() {
-        super.checkHeader()
-    }
-
-    /** "Back button click" */
+    /** Back button click */
     fun backtoLoginScreen() {
         page.run {
             backBN!!.clickElement("Back button")
+        }
+    }
+
+    /** Name field text input */
+    fun fillUserName() {
+        page.run {
+            nameET!!.fillTextInput("New user")
+        }
+    }
+
+    /** Next button click */
+    fun proceedToBackupMnemonic() {
+        page.run {
+            nextBN!!.clickElement("Next")
         }
     }
 }

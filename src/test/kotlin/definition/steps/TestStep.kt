@@ -4,7 +4,6 @@ import adaptation.utils.shared.MobilePlatform
 import adaptation.screens.shared.BaseScreen
 import io.appium.java_client.AppiumDriver
 import io.appium.java_client.MobileElement
-import org.junit.Assert
 
 /**
  * Base step class
@@ -15,29 +14,31 @@ abstract class TestStep(
     open val platform: MobilePlatform
 ) {
     /**
-     * check header
+     * Check header
      * */
     open fun checkHeader() {
+        println("Check header is displayed")
         val result = page.returnHeader()!!.text
         val expected = when (platform) {
             MobilePlatform.ANDROID -> page.expectedHeaderAndroid
             MobilePlatform.IOS -> page.expectedHeaderiOS
         }
-        Assert.assertTrue(result == expected)
+        assert(result == expected)
     }
 
     /**
-     * check element is displayed
+     * Check element is displayed
      * */
     fun MobileElement.checkElementIsDisplayed(elementName: String) {
         println("Check $elementName is displayed")
-        Assert.assertTrue(this.isDisplayed)
+        assert(this.isDisplayed)
     }
 
     /**
      * Check elements are displayed
      * */
     open fun checkElementsAreDisplayed() {
+        println("Check screen elements are displayed")
         page.returnElements()!!.forEach {
             it.first!!.checkElementIsDisplayed(it.second)
         }
@@ -56,11 +57,11 @@ abstract class TestStep(
      */
     fun MobileElement.fillTextInput(text: String) {
         println("Input $text")
-            this.run {
-                click()
-                clear()
-                sendKeys(text)
-            }
+        this.run {
+            click()
+            clear()
+            sendKeys(text)
+        }
     }
 
     fun MobileElement.checkElementIsNotDisplayed() {

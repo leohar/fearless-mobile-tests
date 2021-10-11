@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit
  * Base test class
  */
 
-open class BaseTest <T: BaseApp>{
+open class BaseTest<T : BaseApp> {
     private var driver = ThreadLocal<AppiumDriver<MobileElement>>()
     lateinit var platformRunAs: MobilePlatform
     var productName: String = ""
@@ -74,7 +74,7 @@ open class BaseTest <T: BaseApp>{
 
     @AfterEach
     fun tearDown() {
-        this.driver.get().quit() ?: throw Exception ("Driver instance was unable to quit.")
+        this.driver.get().quit()
     }
 
     fun getDriver(): AppiumDriver<MobileElement>? {
